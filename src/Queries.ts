@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const GET_CITY_BY_NAME = gql`
-  {
-    getCityByName(name: "rasht") {
+  query GetCityByName($name: String!) {
+    getCityByName(name: $name) {
       id
       name
       coord {

@@ -5,16 +5,10 @@ import { ThemeProvider } from "@mui/material/styles";
 import App from "./App";
 import theme from "./theme";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-const client = new ApolloClient({
-  uri: "https://graphql-weather-api.herokuapp.com/",
-  cache: new InMemoryCache(),
-});
 ReactDOM.render(
   <ThemeProvider theme={theme}>
     <CssBaseline />
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <App />
   </ThemeProvider>,
   document.querySelector("#root")
 );
