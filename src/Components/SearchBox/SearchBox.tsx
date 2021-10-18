@@ -12,7 +12,6 @@ interface IProps {
 const SearchBox: React.FC<IProps> = ({ onSelected }) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<string[]>([]);
-  // console.log(options);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -64,7 +63,6 @@ const SearchBox: React.FC<IProps> = ({ onSelected }) => {
                     setLoading(true);
                     const results = await searchCities(term);
                     setOptions(results.map((record) => record.name));
-                    console.log(options);
                     setLoading(false);
                   }}
                   InputProps={{

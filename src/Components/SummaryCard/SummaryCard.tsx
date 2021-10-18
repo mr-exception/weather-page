@@ -28,6 +28,7 @@ function getIcon(value: string): string {
     case "Clear":
       return Sunny;
     case "Fog":
+    case "Mist":
       return Foggy;
     default:
       return Cloudy;
