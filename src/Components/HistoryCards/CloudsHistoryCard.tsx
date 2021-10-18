@@ -1,3 +1,8 @@
+/**
+ * this is an internal components which get an array of IHistoryRecord
+ * and renders a chart to show clouds variant through the time
+ * the chart will show the data on separated hours
+ */
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";

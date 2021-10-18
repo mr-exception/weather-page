@@ -1,5 +1,4 @@
 import { Axios } from "axios";
-
 export interface IMapRecord {
   name: string;
   coords: {
@@ -11,6 +10,12 @@ export interface IMapRecord {
 const axios = new Axios({
   baseURL: "https://api.openweathermap.org/data/2.5",
 });
+/**
+ * this api returns current summary status of cities in a
+ * specified bouding
+ * @param bbox (bbox string)
+ * @returns IMapRecord[]
+ */
 export const getMapStatus = (bbox: string): Promise<IMapRecord[]> =>
   axios
     .get<string>("/box/city", {

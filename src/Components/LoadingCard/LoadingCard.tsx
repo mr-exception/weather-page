@@ -1,4 +1,9 @@
-import { Card, Grid, CircularProgress } from "@mui/material";
+/**
+ * this component renders a circular loading in
+ * a grid container
+ */
+
+import { Grid, CircularProgress } from "@mui/material";
 import react from "react";
 const LoadingCard = () => {
   return (

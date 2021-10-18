@@ -18,6 +18,13 @@ export interface IHistoryRecord {
 const axios = new Axios({
   baseURL: "https://api.openweathermap.org/data/2.5/onecall",
 });
+/**
+ * returns hourly weather report of a given coordinate
+ * @param lat
+ * @param lon
+ * @param dt
+ * @returns IHistoryRecord[]
+ */
 export const getHistory = (
   lat: number,
   lon: number,

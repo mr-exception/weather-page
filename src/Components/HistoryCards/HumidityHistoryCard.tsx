@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+/**
+ * this is an internal components which get an array of IHistoryRecord
+ * and renders a chart to show humidity percentage through the time
+ * the chart will show the data on separated hours
+ */
+import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { CardHeader, Grid, Typography } from "@mui/material";
-import LoadingCard from "../LoadingCard/LoadingCard";
+import { CardHeader, Grid } from "@mui/material";
 import { Chart } from "react-google-charts";
 import { IHistoryRecord } from "../../Containers/Home/API";
 
