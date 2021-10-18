@@ -1,3 +1,7 @@
+/**
+ * this cards shows summary information about the weather of selected city
+ * like max and min temperature
+ */
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -20,7 +24,12 @@ import Rotate90DegreesCcwIcon from "@mui/icons-material/Rotate90DegreesCcw";
 interface IProps {
   data: ICityResult;
 }
-
+/**
+ * converts weather status into a link to an icon
+ * that represents the weather status
+ * @param value string
+ * @returns string
+ */
 function getIcon(value: string): string {
   switch (value) {
     case "Clouds":

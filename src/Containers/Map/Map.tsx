@@ -1,11 +1,13 @@
-import react, { useEffect, useState } from "react";
+/**
+ * this compnent represents a map which has markers on each city
+ * in viewport. markers are icons to tell user what climate is in that city
+ */
+import React, { useEffect, useState } from "react";
 import Container from "@mui/material/Container";
 import { Grid } from "@mui/material";
 import Leaflet from "leaflet";
 
-import Snowy from "../../Icons/snowflake.png";
 import Cloudy from "../../Icons/cloudy.png";
-import RainyDay from "../../Icons/rainy-day.png";
 import SunCloudy from "../../Icons/sun-cloudy.png";
 import Foggy from "../../Icons/foggy.png";
 import Sunny from "../../Icons/sunny.png";
@@ -15,16 +17,6 @@ import { getMapStatus } from "./API";
 
 const cloudyIcon = Leaflet.icon({
   iconUrl: Cloudy,
-  iconSize: [20, 20],
-  iconAnchor: [0, 0],
-});
-const snowyIcon = Leaflet.icon({
-  iconUrl: Snowy,
-  iconSize: [20, 20],
-  iconAnchor: [0, 0],
-});
-const rainyDayIcon = Leaflet.icon({
-  iconUrl: RainyDay,
   iconSize: [20, 20],
   iconAnchor: [0, 0],
 });
@@ -44,6 +36,12 @@ const sunnyIcon = Leaflet.icon({
   iconAnchor: [0, 0],
 });
 
+/**
+ * converts weather status into a link to an icon
+ * that represents the weather status
+ * @param value string
+ * @returns string
+ */
 function getIcon(value: string): Leaflet.Icon {
   switch (value) {
     case "Clouds":
@@ -59,10 +57,15 @@ function getIcon(value: string): Leaflet.Icon {
 }
 const Map: React.FC = () => {
   const [map, setMap] = useState<Leaflet.Map>();
+  // default center of map
   const [center, setCenter] = useState<{ lat: number; lon: number }>({
     lat: 49.325121,
     lon: 3.224152,
   });
+  /**
+   * calculates bbox based on current center
+   * @returns string
+   */
   function calculateBbox() {
     const lonLeft = Math.floor(center.lon - 2);
     const lonRight = Math.floor(center.lon + 2);
@@ -70,6 +73,7 @@ const Map: React.FC = () => {
     const latBottom = Math.floor(center.lat - 2);
     return `${lonLeft},${latBottom},${lonRight},${latTop},7`;
   }
+  // initializes map for the first time
   useEffect(() => {
     if (!!map) return;
     setMap(
@@ -82,6 +86,7 @@ const Map: React.FC = () => {
   }, []);
   useEffect(() => {
     if (!map) return;
+    // initializes tile layer for the first time
     Leaflet.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
       {
@@ -92,11 +97,14 @@ const Map: React.FC = () => {
       }
     ).addTo(map);
     Leaflet.marker([center.lat, center.lon], { icon: cloudyIcon }).addTo(map);
+    // listens to dragend and updates the center
     map.on("dragend", () => {
       const center = map.getCenter();
       setCenter({ lat: center.lat, lon: center.lng });
     });
   }, [map]);
+  // listens to center change and updates markers on center change
+  // also listens to map change first time (because map is not initialized in first load)
   useEffect(() => {
     if (!center || !map) return;
     // load data

@@ -1,8 +1,13 @@
+/**
+ * this components is a card contains an autocomplete
+ * asyn search input which searches in city names and
+ * returns the selected city name (string)
+ */
 import { Card, Grid } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import TextField from "@mui/material/TextField";
-import react, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { searchCities } from "./API";
 
 interface IProps {
@@ -15,13 +20,14 @@ const SearchBox: React.FC<IProps> = ({ onSelected, defaultValue }) => {
   const [options, setOptions] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+  // load cities list for the first time
   useEffect(() => {
     if (!loading) {
       return;
     }
     (async () => {
       const results = await searchCities(
-        defaultValue === null ? "london" : defaultValue
+        defaultValue === null ? "london" : defaultValue // if there is a default city, search it, otherwise: search london
       );
       setOptions(results.map((record) => record.name));
       setLoading(false);
@@ -51,7 +57,7 @@ const SearchBox: React.FC<IProps> = ({ onSelected, defaultValue }) => {
             getOptionLabel={(option: string) => option}
             options={options}
             loading={loading}
-            defaultValue={defaultValue === null ? "london" : defaultValue}
+            defaultValue={defaultValue === null ? "london" : defaultValue} // default city or london
             onChange={(_, value) => {
               if (!!value) {
                 onSelected(value);

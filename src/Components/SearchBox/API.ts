@@ -8,6 +8,11 @@ export interface ICityRecord {
 const axios = new Axios({
   baseURL: "https://autocomplete.travelpayouts.com",
 });
+/**
+ * returns a list of city based on passed term string
+ * @param term string
+ * @returns ICityRecord[]
+ */
 export const searchCities = (term: string): Promise<ICityRecord[]> =>
   axios
     .get<string>("/places2", {
