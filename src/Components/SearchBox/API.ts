@@ -6,23 +6,23 @@ export interface ICityRecord {
 }
 
 const axios = new Axios({
-  baseURL: "http://api.geonames.org",
+  baseURL: "https://autocomplete.travelpayouts.com",
 });
 export const searchCities = (term: string): Promise<ICityRecord[]> =>
   axios
-    .get<string>("/search", {
-      params: { username: "mrexception", q: term, type: "json" },
+    .get<string>("/places2", {
+      params: { locale: "en", types: ["city"], term },
     })
     .then((response) => {
       const data = JSON.parse(response.data);
       const results: ICityRecord[] = [];
-      data.geonames.forEach((item: { name: string; countryName: string }) => {
+      data.forEach((item: { name: string; country_name: string }) => {
         if (results.find((r) => r.name === item.name)) {
           return;
         }
         results.push({
           name: item.name,
-          country_name: item.countryName,
+          country_name: item.country_name,
         });
       });
       return results;
