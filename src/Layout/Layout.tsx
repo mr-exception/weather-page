@@ -14,7 +14,7 @@ const Layout: React.FC<IProps> = ({ children }) => {
           <Button
             color="inherit"
             onClick={() => {
-              location.href = "/";
+              location.href = "/weather-map";
             }}
           >
             Search
