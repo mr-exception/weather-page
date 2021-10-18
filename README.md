@@ -1,38 +1,19 @@
-# Create React App example with TypeScript
+# Weather Page SPA
 
-## How to use
+this project is developed by ReactJS ([create-react-app](https://github.com/facebook/create-react-app)) and using [mui](https://mui.com) for components. this is an opensource project and we are using public APIs to render to fetch data. here is a list of origins which we are using for requesting data:
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+- https://autocomplete.travelpayouts.com to load city lists (`rest api`)
+- https://api.openweathermap.org to load historical weather informations of a city (`rest api`)
+- https://api.openweathermap.org to load informations of cities within a geographical area (`rest api`)
+- https://graphql-weather-api.herokuapp.com to load current weather information of a city (`graphql`)
 
-<!-- #default-branch-switch -->
+## how to use
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app-with-typescript
-cd create-react-app-with-typescript
-```
+you can clone and run this project locally or try the [live demo](https://mr-exception.github.io/weather-page/).
 
-Install it and run:
+## how to install
 
-```sh
-npm install
-npm start
-```
-
-or:
-
-<!-- #default-branch-switch -->
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/create-react-app-with-typescript)
-
-## The idea behind the example
-
-This example demonstrates how you can use [Create React App](https://github.com/facebookincubator/create-react-app) with [TypeScript](https://github.com/Microsoft/TypeScript).
-It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
-If you prefer, you can [use styled-components instead](https://mui.com/guides/interoperability/#styled-components).
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/getting-started/templates/) section.
+1. clone the project
+2. run `yarn` or `npm i`
+3. run `yarn start` or `npm start`
+4. to build the project run `yarn run build` or `npm run build`
