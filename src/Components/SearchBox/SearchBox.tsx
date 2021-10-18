@@ -12,6 +12,7 @@ interface IProps {
 const SearchBox: React.FC<IProps> = ({ onSelected }) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<string[]>([]);
+  // console.log(options);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const SearchBox: React.FC<IProps> = ({ onSelected }) => {
       setOptions(results.map((record) => record.name));
       setLoading(false);
     })();
-  }, [loading]);
+  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -59,11 +60,11 @@ const SearchBox: React.FC<IProps> = ({ onSelected }) => {
                   label="Search City or Country"
                   onChange={async (event) => {
                     const term = event.target.value;
+                    if (term.length < 2) return;
                     setLoading(true);
-                    const results = await searchCities(
-                      !!term ? term : "london"
-                    );
+                    const results = await searchCities(term);
                     setOptions(results.map((record) => record.name));
+                    console.log(options);
                     setLoading(false);
                   }}
                   InputProps={{
