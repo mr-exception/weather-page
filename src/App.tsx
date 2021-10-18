@@ -6,7 +6,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <Route exact path="/weather-page">
           <Home />
         </Route>
       </Switch>
