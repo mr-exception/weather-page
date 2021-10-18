@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.js": "/weather-page/static/js/main.f161994d.chunk.js",
-    "main.js.map": "/weather-page/static/js/main.f161994d.chunk.js.map",
+    "main.js": "/weather-page/static/js/main.72f16022.chunk.js",
+    "main.js.map": "/weather-page/static/js/main.72f16022.chunk.js.map",
     "runtime-main.js": "/weather-page/static/js/runtime-main.f254abc2.js",
     "runtime-main.js.map": "/weather-page/static/js/runtime-main.f254abc2.js.map",
-    "static/js/2.d1098815.chunk.js": "/weather-page/static/js/2.d1098815.chunk.js",
-    "static/js/2.d1098815.chunk.js.map": "/weather-page/static/js/2.d1098815.chunk.js.map",
+    "static/js/2.223d4449.chunk.js": "/weather-page/static/js/2.223d4449.chunk.js",
+    "static/js/2.223d4449.chunk.js.map": "/weather-page/static/js/2.223d4449.chunk.js.map",
     "index.html": "/weather-page/index.html",
-    "static/js/2.d1098815.chunk.js.LICENSE.txt": "/weather-page/static/js/2.d1098815.chunk.js.LICENSE.txt"
+    "static/js/2.223d4449.chunk.js.LICENSE.txt": "/weather-page/static/js/2.223d4449.chunk.js.LICENSE.txt",
+    "static/media/snowflake.967c6159.png": "/weather-page/static/media/snowflake.967c6159.png"
   },
   "entrypoints": [
     "static/js/runtime-main.f254abc2.js",
-    "static/js/2.d1098815.chunk.js",
-    "static/js/main.f161994d.chunk.js"
+    "static/js/2.223d4449.chunk.js",
+    "static/js/main.72f16022.chunk.js"
   ]
 }
