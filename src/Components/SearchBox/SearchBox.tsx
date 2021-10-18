@@ -7,10 +7,9 @@ import { searchCities } from "./API";
 
 interface IProps {
   onSelected: (value: string) => void;
-  defaultValue: string;
 }
 
-const SearchBox: React.FC<IProps> = ({ onSelected, defaultValue }) => {
+const SearchBox: React.FC<IProps> = ({ onSelected }) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,7 +19,7 @@ const SearchBox: React.FC<IProps> = ({ onSelected, defaultValue }) => {
       return;
     }
     (async () => {
-      const results = await searchCities(defaultValue);
+      const results = await searchCities("london");
       setOptions(results.map((record) => record.name));
       setLoading(false);
     })();
@@ -43,11 +42,13 @@ const SearchBox: React.FC<IProps> = ({ onSelected, defaultValue }) => {
             onClose={() => {
               setOpen(false);
             }}
-            isOptionEqualToValue={(option: string, value) => option === value}
+            isOptionEqualToValue={(option: string, value) =>
+              option.toLowerCase() === value.toLowerCase()
+            }
             getOptionLabel={(option: string) => option}
             options={options}
             loading={loading}
-            defaultValue={defaultValue}
+            defaultValue="london"
             onChange={(_, value) => {
               if (!!value) onSelected(value);
             }}
@@ -60,7 +61,7 @@ const SearchBox: React.FC<IProps> = ({ onSelected, defaultValue }) => {
                     const term = event.target.value;
                     setLoading(true);
                     const results = await searchCities(
-                      !!term ? term : defaultValue
+                      !!term ? term : "london"
                     );
                     setOptions(results.map((record) => record.name));
                     setLoading(false);
