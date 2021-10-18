@@ -20,8 +20,14 @@ const weatherClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const Home: React.FC = () => {
-  const [cityName, setCityName] = useState<string>("london");
+interface IProps {
+  defaultCity: string | null;
+}
+
+const Home: React.FC<IProps> = ({ defaultCity }) => {
+  const [cityName, setCityName] = useState<string>(
+    defaultCity !== null ? defaultCity : "london"
+  );
   const [result, setResult] = useState<ICityResult>();
   const { loading } = useQuery(GET_CITY_BY_NAME, {
     client: weatherClient,
@@ -50,10 +56,16 @@ const Home: React.FC = () => {
     })();
   }, [result?.id]);
   return (
-    <Container maxWidth="lg" style={{ marginTop: 10 }}>
+    <Container maxWidth="lg" style={{ marginTop: 10, marginBottom: 10 }}>
       <Grid container justifyContent="center" alignItems="center" spacing={1}>
         <Grid item md={10}>
-          <SearchBox onSelected={setCityName} />
+          <SearchBox
+            defaultValue={defaultCity}
+            onSelected={(value) => {
+              setCityName(value);
+              setHistoryRecords([]);
+            }}
+          />
         </Grid>
         {loading && (
           <Grid item md={10}>

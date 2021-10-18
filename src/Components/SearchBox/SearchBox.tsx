@@ -6,10 +6,11 @@ import react, { Fragment, useEffect, useState } from "react";
 import { searchCities } from "./API";
 
 interface IProps {
+  defaultValue: string | null;
   onSelected: (value: string) => void;
 }
 
-const SearchBox: React.FC<IProps> = ({ onSelected }) => {
+const SearchBox: React.FC<IProps> = ({ onSelected, defaultValue }) => {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -19,7 +20,9 @@ const SearchBox: React.FC<IProps> = ({ onSelected }) => {
       return;
     }
     (async () => {
-      const results = await searchCities("london");
+      const results = await searchCities(
+        defaultValue === null ? "london" : defaultValue
+      );
       setOptions(results.map((record) => record.name));
       setLoading(false);
     })();
@@ -48,9 +51,12 @@ const SearchBox: React.FC<IProps> = ({ onSelected }) => {
             getOptionLabel={(option: string) => option}
             options={options}
             loading={loading}
-            defaultValue="london"
+            defaultValue={defaultValue === null ? "london" : defaultValue}
             onChange={(_, value) => {
-              if (!!value) onSelected(value);
+              if (!!value) {
+                onSelected(value);
+                location.hash = value;
+              }
             }}
             renderInput={(params) => {
               return (
