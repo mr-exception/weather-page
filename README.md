@@ -26,14 +26,48 @@ Clone the project into your local environment or any webserver which is supporti
 
 ```bash
 $ yarn
+
+yarn install v1.22.5
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+Done in 11.91s.
+
 $ yarn start
+
+Compiled successfully!
+
+You can now view create-react-app-with-typescript in the browser.
+
+  Local:            http://localhost:3001/weather-page
+  On Your Network:  http://10.6.3.8:3001/weather-page
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+
 ```
 
 or with NPM:
 
 ```bash
 $ npm i
+
+added 441 packages from 112 contributors, removed 251 packages, updated 1504 packages and audited 1949 packages in 515.657s
+
 $ npm start
+
+Compiled successfully!
+
+You can now view create-react-app-with-typescript in the browser.
+
+  Local:            http://localhost:3001/weather-page
+  On Your Network:  http://10.6.3.8:3001/weather-page
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
 ```
 
 ## Build
@@ -42,12 +76,55 @@ You can build the project and have a bundled output containing just `html/css/js
 
 ```bash
 $ yarn run build
+
+yarn run v1.22.5
+$ react-scripts build
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  219.43 KB (+33 B)  build\static\js\2.2dc841be.chunk.js
+  33.37 KB           build\static\js\main.50ae21de.chunk.js
+  799 B              build\static\js\runtime-main.f254abc2.js
+
+The project was built assuming it is hosted at /weather-page/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+Done in 35.98s.
 ```
 
 or with NPM
 
 ```bash
 $ npm run build
+
+$ react-scripts build
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  219.43 KB (+33 B)  build\static\js\2.2dc841be.chunk.js
+  33.37 KB           build\static\js\main.50ae21de.chunk.js
+  799 B              build\static\js\runtime-main.f254abc2.js
+
+The project was built assuming it is hosted at /weather-page/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+Done in 35.98s.
 ```
 
 ## Deploy
