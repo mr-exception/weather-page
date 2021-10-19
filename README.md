@@ -137,12 +137,58 @@ Run this command to start deployment progress:
 
 ```bash
 $ yarn run deploy
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  219.39 KB  build\static\js\2.00a1e31b.chunk.js
+  33.37 KB   build\static\js\main.f5905163.chunk.js
+  799 B      build\static\js\runtime-main.f254abc2.js
+
+The project was built assuming it is hosted at /weather-page/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+$ gh-pages -d build
+Published
+Done in 46.82s.
+
 ```
 
 or with NPM:
 
 ```bash
 $ npm run deploy
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  219.39 KB  build\static\js\2.00a1e31b.chunk.js
+  33.37 KB   build\static\js\main.f5905163.chunk.js
+  799 B      build\static\js\runtime-main.f254abc2.js
+
+The project was built assuming it is hosted at /weather-page/.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+$ gh-pages -d build
+Published
+Done in 46.82s.
+
 ```
 
 This command will create a new branch named `gh-pages` and commits project bundles on it. branch `gh-pages` is known as a reserved branch for GitHub pages and GitHub will serve it on `http://[username].github.io/[repo-name]`
@@ -153,10 +199,22 @@ You can run test cases by:
 
 ```bash
 $ yarn run test
+
+search.test.ts (4/4) 100%
+map.test.ts (4/4) 100%
+general.test.ts (4/4) 100%
+
+ran all tests successfully!
 ```
 
 or with NPM:
 
 ```bash
 $ npm run test
+
+search.test.ts (4/4) 100%
+map.test.ts (4/4) 100%
+general.test.ts (4/4) 100%
+
+ran all tests successfully!
 ```
